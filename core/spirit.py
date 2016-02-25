@@ -7,3 +7,9 @@ class Boss:
 
     def deserialize(self):
         pass
+
+    def hire(self ,man):
+        pass
+
+    def fire(self ,man):
+        pass
