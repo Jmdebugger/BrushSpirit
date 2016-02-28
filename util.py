@@ -12,3 +12,13 @@ def sync(lock):
         newFn.__doc__ = fn.__doc__
         return newFn
     return syncWithLock
+
+
+def gen_imei():
+    return None
+
+def gen_imsi():
+    return None
+
+def gen_wmac():
+    return None

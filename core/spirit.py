@@ -3,18 +3,73 @@
 import config
 import os
 import threading
+import time
 from util import sync
 try:
     import cPickle as pickle
 except ImportError:
     import pickle
 
+class App:
+    def __init__(self):
+        self.total_time = 0
+        self.package_name = None
+
+    def onstart(self):
+        pass
+
+    def onstop(self):
+        pass
+
+    def run(self):
+        pass
+
+
+class Phone:
+    def __init__(self):
+        self.__apps = {}
+        self.imei = None
+        self.imsi = None
+        self.wmac = None
+        self.os = "Android"
+        self.resolution = None
+        self.access = None
+        self.os_version = None
+        self.android_id = None
+        self.uid = None
+        self.total_time = None
+        self.running = False
+
+    def power_on(self):
+        th = threading.Thread(target=Phone.run, args=(self,))
+        self.running = True
+        th.start()
+
+
+    def power_off(self):
+        self.running = False
+        
+
+
+
+    def run(self):
+        while self.running:
+            pass
+
+
+
+
+    def install(self ,app):
+        pass
+
+    def uninstall(self ,app):
+        pass
 
 
 class Tech:
     def __init__(self ,tid):
         self.tid = tid
-        self.phones = {}
+        self.__phones = {}
     def onfire(self):
         pass
     def onhire(self):
@@ -22,6 +77,10 @@ class Tech:
     def onwork(self):
         pass
     def onfree(self):
+        pass
+    def add(self ,phone):
+        pass
+    def delete(self, phone):
         pass
 
 
@@ -93,18 +152,10 @@ def saveBoss():
     return True
 
 
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
-    loadBoss()
-    saveBoss()
-    loadBoss()
+    p = Phone()
+    p.power_on()
+
+
 
 
